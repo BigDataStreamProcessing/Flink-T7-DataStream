@@ -1,9 +1,11 @@
-package org.example.flink;
+package org.example.flink.functions;
 
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
+
+import org.example.flink.model.Emission;
 
 /**
  * Zawartość emisji: klucz, granice okna, stan akumulatora oraz watermark i czas przetwarzania

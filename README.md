@@ -6,17 +6,19 @@ Projekt startowy do warsztatu **T7 - od Table API do DataStream API** ze szkolen
 
 Zawartość (`src/main/java/org/example/flink`):
 
-- `TriggersApp` - część A: jedno okno stałe 1 min w czasie zdarzenia i pięć gałęzi z różnymi
-  wyzwalaczami (domyślny, `CountTrigger`, `ContinuousEventTimeTrigger`, `PurgingTrigger`,
-  własny `EarlyOnTimeLate`); każda emisja trafia do tematu `house-emissions`,
-- `LateApp` - część B: źródło w *SQL* z małym zapasem watermarku, `toDataStream`, okno z
-  `allowedLateness` i wyjściem bocznym (temat `house-late`), kolejne wersje wyniku z powrotem do
-  *SQL* (`fromChangelogStream`, upsert) i do tabeli `housestats` w MySQL,
-- `ChangelogApp` - "Jeśli masz czas": `toChangelogStream` dla agregacji bez okna,
-- gotowe klasy pomocnicze: `HouseEvent` (POJO zdarzenia), `Emission` (jedna emisja okna),
-  `CountSum` (akumulator: liczba i suma), `Diagnostics` (`ProcessWindowFunction` dokładająca
-  klucz, granice okna, watermark i czas emisji), `EarlyOnTimeLate` (szkielet wyzwalacza),
-  `KafkaSinks` (ujście Kafka z JSON).
+- programy (klasy z `main`, uruchamiane przez `flink run -c`):
+  - `TriggersApp` - część A: jedno okno stałe 1 min w czasie zdarzenia i pięć gałęzi z różnymi
+    wyzwalaczami (domyślny, `CountTrigger`, `ContinuousEventTimeTrigger`, `PurgingTrigger`,
+    własny `EarlyOnTimeLate`); każda emisja trafia do tematu `house-emissions`,
+  - `LateApp` - część B: źródło w *SQL* z małym zapasem watermarku, `toDataStream`, okno z
+    `allowedLateness` i wyjściem bocznym (temat `house-late`), kolejne wersje wyniku z powrotem do
+    *SQL* (`fromChangelogStream`, upsert) i do tabeli `housestats` w MySQL,
+  - `ChangelogApp` - "Jeśli masz czas": `toChangelogStream` dla agregacji bez okna,
+- `model` - klasy danych: `HouseEvent` (zdarzenie), `Emission` (jedna emisja okna),
+- `functions` - funkcje okna: `CountSum` (akumulator: liczba i suma), `Diagnostics`
+  (`ProcessWindowFunction` dokładająca klucz, granice okna, watermark i czas emisji),
+- `triggers` - własne wyzwalacze: `EarlyOnTimeLate` (szkielet),
+- `connectors` - złącza: `KafkaSinks` (ujście Kafka z JSON).
 
 Miejsca do uzupełnienia oznaczone są komentarzami `TODO`.
 

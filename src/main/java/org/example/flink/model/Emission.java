@@ -1,4 +1,4 @@
-package org.example.flink;
+package org.example.flink.model;
 
 /**
  * Jedna emisja wyniku okna - zapisywana jako JSON do tematu house-emissions.

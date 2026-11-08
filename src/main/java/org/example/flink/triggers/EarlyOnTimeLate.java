@@ -1,4 +1,4 @@
-package org.example.flink;
+package org.example.flink.triggers;
 
 import org.apache.flink.streaming.api.windowing.triggers.Trigger;
 import org.apache.flink.streaming.api.windowing.triggers.TriggerResult;

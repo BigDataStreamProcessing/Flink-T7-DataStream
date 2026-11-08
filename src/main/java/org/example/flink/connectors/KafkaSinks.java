@@ -1,4 +1,4 @@
-package org.example.flink;
+package org.example.flink.connectors;
 
 import org.apache.flink.connector.base.DeliveryGuarantee;
 import org.apache.flink.connector.kafka.sink.KafkaRecordSerializationSchema;

@@ -1,4 +1,4 @@
-package org.example.flink;
+package org.example.flink.model;
 
 import java.time.Instant;
 

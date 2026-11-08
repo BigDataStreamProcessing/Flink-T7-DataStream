@@ -12,6 +12,13 @@ import org.apache.flink.streaming.api.windowing.triggers.ContinuousEventTimeTrig
 import org.apache.flink.streaming.api.windowing.triggers.CountTrigger;
 import org.apache.flink.streaming.api.windowing.triggers.PurgingTrigger;
 
+import org.example.flink.connectors.KafkaSinks;
+import org.example.flink.functions.CountSum;
+import org.example.flink.functions.Diagnostics;
+import org.example.flink.model.Emission;
+import org.example.flink.model.HouseEvent;
+import org.example.flink.triggers.EarlyOnTimeLate;
+
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;

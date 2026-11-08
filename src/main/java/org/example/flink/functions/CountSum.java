@@ -1,7 +1,9 @@
-package org.example.flink;
+package org.example.flink.functions;
 
 import org.apache.flink.api.common.functions.AggregateFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
+
+import org.example.flink.model.HouseEvent;
 
 /**
  * Akumulator okna: (liczba zdarzeń, suma punktów). Liczony przyrostowo - w stanie okna jest jedna

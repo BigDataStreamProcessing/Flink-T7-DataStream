@@ -15,6 +15,12 @@ import org.apache.flink.types.Row;
 import org.apache.flink.types.RowKind;
 import org.apache.flink.util.OutputTag;
 
+import org.example.flink.connectors.KafkaSinks;
+import org.example.flink.functions.CountSum;
+import org.example.flink.functions.Diagnostics;
+import org.example.flink.model.Emission;
+import org.example.flink.model.HouseEvent;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
