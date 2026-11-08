@@ -14,10 +14,10 @@ import org.example.flink.model.Emission;
 public class Diagnostics
         extends ProcessWindowFunction<Tuple2<Long, Long>, Emission, String, TimeWindow> {
 
-    private final String variant;
+    private final String branch;
 
-    public Diagnostics(String variant) {
-        this.variant = variant;
+    public Diagnostics(String branch) {
+        this.branch = branch;
     }
 
     @Override
@@ -25,7 +25,7 @@ public class Diagnostics
                         Collector<Emission> out) {
         Tuple2<Long, Long> r = results.iterator().next();
         Emission e = new Emission();
-        e.variant = variant;
+        e.branch = branch;
         e.house = house;
         e.windowStart = ctx.window().getStart();
         e.windowEnd = ctx.window().getEnd();

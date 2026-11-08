@@ -29,7 +29,7 @@ import java.util.List;
  * Ten sam strumień zdarzeń, te same okna stałe 1 min w czasie zdarzenia (watermark z zapasem
  * 40 s - więcej niż opóźnienie generatora) i pięć gałęzi różniących się tylko wyzwalaczem.
  * Każda emisja każdej gałęzi trafia jako JSON do tematu house-emissions (klasa Emission z polem
- * variant), gdzie policzymy je w SQL Client.
+ * branch), gdzie policzymy je w SQL Client.
  */
 public class TriggersApp {
 

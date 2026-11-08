@@ -3,7 +3,8 @@ package org.example.flink.model;
 /**
  * Jedna emisja wyniku okna - zapisywana jako JSON do tematu house-emissions.
  *
- * variant      - który wyzwalacz ją wysłał (default, count, continuous, purging, eotl, late-app)
+ * branch       - gałąź, która ją wysłała (default, count, continuous, purging, eotl, late-app);
+ *                nie "variant" - to w Flink SQL słowo zarezerwowane (typ VARIANT)
  * house        - klucz
  * windowStart  - początek okna (epoch ms)
  * windowEnd    - koniec okna (epoch ms, bez końca)
@@ -13,7 +14,7 @@ package org.example.flink.model;
  * emittedAt    - czas przetwarzania w chwili emisji (epoch ms)
  */
 public class Emission {
-    public String variant;
+    public String branch;
     public String house;
     public long windowStart;
     public long windowEnd;
@@ -26,7 +27,7 @@ public class Emission {
 
     @Override
     public String toString() {
-        return "Emission{" + variant + ", " + house + ", [" + windowStart + ", " + windowEnd + "), n="
+        return "Emission{" + branch + ", " + house + ", [" + windowStart + ", " + windowEnd + "), n="
                 + howMany + ", sum=" + sumScore + ", wm=" + wm + ", at=" + emittedAt + "}";
     }
 }
